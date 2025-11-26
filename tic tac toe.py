@@ -141,8 +141,8 @@ def min_value(board, alpha, beta):
 class TicTacToeGUI:
     def __init__(self, root):
         self.root = root
-        self.root.title("Tic Tac Toe")
-        self.root.configure(bg='light blue')
+        self.root.title("tictactoe nuriZilvani")
+        self.root.configure(bg='black')
         self.board = initial_state()
         self.buttons = [[None for _ in range(3)] for _ in range(3)]
         self.create_buttons()
@@ -151,7 +151,7 @@ class TicTacToeGUI:
     def create_buttons(self):
         for i in range(3):
             for j in range(3):
-                button = tk.Button(self.root, text='', font=('normal', 40), width=5, height=2, bg='light blue', command=lambda row=i, col=j: self.on_button_click(row, col))
+                button = tk.Button(self.root, text='', font=('normal', 40), width=5, height=2, bg='black', command=lambda row=i, col=j: self.on_button_click(row, col))
                 button.grid(row=i, column=j)
                 self.buttons[i][j] = button
 
@@ -180,9 +180,9 @@ class TicTacToeGUI:
     def end_game(self):
         winner_val = winner(self.board)
         if winner_val:
-            messagebox.showinfo("Game Over", f"Winner: {winner_val}")
+            messagebox.showinfo("permainan selesai", f"pemenangnya : {winner_val}")
         else:
-            messagebox.showinfo("Game Over", "It's a tie!")
+            messagebox.showinfo("permainan selesai", "seri")
         self.reset_board()
 
     def reset_board(self):
